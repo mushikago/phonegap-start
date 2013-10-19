@@ -45,7 +45,7 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
-        
+        alert("Hokkaido");
         FB.init({
             appId  : '152874854922555',
             status : true, // check login status
