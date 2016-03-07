@@ -33,7 +33,6 @@
         var mirrorViewAfter;
         
         var images = images||{};
-        var test;
         
         var manifest = [
             {src: "images/Kagami/ObjA.png", id: "ObjA"},
@@ -45,9 +44,6 @@
         function initialize(){
             canvasElement = document.getElementById("myCanvas");
             stage = new createjs.Stage(canvasElement);
-            createjs.Touch.enable(stage);
-            test = document.getElementById("test");
-            test.textContent =  "createjs.Touch.isSupported()=" + createjs.Touch.isSupported();
             canvasWidth = canvasElement.width;
             canvasHeight = canvasElement.height;
             var loader = new createjs.LoadQueue(false);
@@ -186,7 +182,7 @@
             
 //            createjs.Ticker.addEventListener("tick",tick);
             Human.addEventListener("mousedown", startDrag);
-            stage.addEventListener("mousedown", stageClick);
+            
             pointUpdateAndDraw()
             
             stage.update()
@@ -194,13 +190,7 @@
 //            alert(Human.regY);
         }
         
-        function stageClick(e){
-            test.textContent = e;
-        }
-        
-        
         function startDrag(eventObject) {
-            test.textContent = eventObject;
             var instance = eventObject.target;
             // eventObject.addEventListener("mousemove", drag);
             instance.addEventListener("pressmove", drag);
@@ -283,8 +273,6 @@
     </style>
 </head>
 <body onload="initialize()">
-    <div id="test"></div>
 <canvas id="myCanvas" width="800" height="400"></canvas>
-    <form><button>aaa</button></form>
 </body>
 </html>
